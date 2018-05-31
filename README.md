@@ -32,7 +32,7 @@ $ cd /usr/local/bin && ln -s /opt/kubeless/bundles/kubeless_$OS-amd64/kubeless k
 $ minikube start
 ```
 
-### Installation non RBAC Kubeless
+### Installation of the RBAC Kubeless
 * RBAC stands for Role-Based Access Control
 ```bash
 $ export RELEASE=$(curl -s https://api.github.com/repos/kubeless/kubeless/releases/latest | grep tag_name | cut -d '"' -f 4)
@@ -43,7 +43,7 @@ Kubeless version: v1.0.0-alpha.4
 $ kubectl create ns kubeless
 namespace "kubeless" created
 
-$ kubectl create -f https://github.com/kubeless/kubeless/releases/download/$RELEASE/kubeless-non-rbac-$RELEASE.yaml
+$ kubectl create -f https://github.com/kubeless/kubeless/releases/download/$RELEASE/kubeless-$RELEASE.yaml
 configmap "kubeless-config" created
 deployment.apps "kubeless-controller-manager" created
 serviceaccount "controller-acct" created
@@ -83,7 +83,7 @@ INFO[0000] Function hello submitted for deployment
 INFO[0000] Check the deployment status executing 'kubeless function ls hello'
 $ kubeless function ls hello
 NAME 	NAMESPACE	HANDLER   	RUNTIME  	DEPENDENCIES	STATUS                        
-hello	default  	test.hello	python3.6	            	MISSING: Check controller logs
+hello	default  	test.hello	python3.6	            	0/1 NOT READY
 ```
 
 * Check the deployed function
@@ -113,7 +113,7 @@ $ kubectl logs -n kubeless -l kubeless=controller
 
 ### Through Kubeless
 ```bash
-$ kubeless function call hello.hello --data 'Hello world!'
+$ kubeless function call hello --data 'Hello world!'
 Hello world!
 ```
 
@@ -122,7 +122,7 @@ Hello world!
 $ kubectl proxy -p 8080 &
 Starting to serve on 127.0.0.1:8080
 $ curl -L --data '{"Another": "Echo"}' --header "Content-Type:application/json" \
-  localhost:8080/api/v1/namespaces/default/services/get-python:http-function-port/proxy/
+  localhost:8080/api/v1/namespaces/default/services/hello:http-function-port/proxy/
 {"Another": "Echo"}
 ```
 
@@ -136,7 +136,7 @@ NAME	NAMESPACE	HANDLER	RUNTIME	DEPENDENCIES	STATUS
 
 * Remove Kubeless
 ```bash
-$ kubectl delete -f https://github.com/kubeless/kubeless/releases/download/$RELEASE/kubeless-non-rbac-$RELEASE.yaml
+$ kubectl delete -f https://github.com/kubeless/kubeless/releases/download/$RELEASE/kubeless-$RELEASE.yaml
 ```
 
 
