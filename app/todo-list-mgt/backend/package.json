@@ -1,0 +1,18 @@
+{
+  "name": "todos",
+  "version": "0.1.0",
+  "description": "Todo service built with Serverless",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "mongodb": "^2.2.30",
+    "uuid": "^2.0.3"
+  },
+  "devDependencies": {
+    "serverless-kubeless": "^0.4.0"
+  }
+}
