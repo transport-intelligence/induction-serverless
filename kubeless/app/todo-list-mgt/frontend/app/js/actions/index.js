@@ -1,4 +1,4 @@
-export const API_URL = 'http://backend';
+export const API_URL = 'http://localhost.xip.io';
 console.log(process.env);
 
 if (!API_URL) {

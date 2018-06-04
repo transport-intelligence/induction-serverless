@@ -2,21 +2,18 @@
 
 ## Kubernetes
 * http://kubernetes.io
-* https://github.com/kubernetes/kubernetes
-* https://github.com/kubernetes/minikube
+* http://github.com/kubernetes/kubernetes
+* http://github.com/kubernetes/minikube
+* http://docs.docker.com/docker-for-mac/kubernetes
+* https://www.linuxtechi.com/install-kubernetes-1-7-centos7-rhel7
 
 ## Kubeless
 * http://kubeless.io
 * https://github.com/kubeless/kubeless
-  + https://kubeless.io/docs/quick-start/
 * Download/build: https://github.com/kubeless/kubeless/releases
 
-## Kubernetes
-* https://www.linuxtechi.com/install-kubernetes-1-7-centos7-rhel7/
-
-
 # Installation
-* Reference: https://docs.fission.io/0.7.2/installation/kubernetessetup/
+* Reference: http://kubeless.io/docs/quick-start
 
 ## Kubeless binaries
 
@@ -32,7 +29,7 @@ $ unzip kubeless_$OS-amd64.zip
 $ cd /usr/local/bin && ln -s /opt/kubeless/bundles/kubeless_$OS-amd64/kubeless kubeless
 ```
 
-## Kubeless
+## Kubeless services
 
 ### Start the Kubernetes cluster
 * If needed, start the Kubernetes cluster. For instance, with Minikube:
@@ -66,6 +63,10 @@ $ kubectl get pods -n kubeless
 NAME                                           READY     STATUS             RESTARTS   AGE
 kubeless-controller-manager-5c5f5d86c5-tttjn   0/1       CrashLoopBackOff   4          2m
 
+$ kubectl get configmap -n kubeless
+NAME              DATA      AGE
+kubeless-config   10        38ms
+
 $ kubectl get deployment -n kubeless
 NAME                          DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 kubeless-controller-manager   1         1         1            0           3m
@@ -77,7 +78,9 @@ functions.kubeless.io         3m
 httptriggers.kubeless.io      3m
 ```
 
-## Toy application
+## Kubeless direct (no serverless) - Toy application
+
+### Installation
 * Documentation
 ```bash
 $ kubeless function deploy --help
@@ -117,26 +120,27 @@ Label:       	{"created-by":"kubeless","function":"hello"}
 $ kubectl logs -n kubeless -l kubeless=controller
 ```
 
-## Call the hello world application
+### Call the hello world application
 
-### Through Kubeless
+#### Through Kubeless
 ```bash
 $ kubeless function call hello --data 'Hello world!'
 Hello world!
 ```
 
-### Through Kubectl
+#### Through Kubectl
 ```bash
-$ kubectl proxy -p 8080 &
-Starting to serve on 127.0.0.1:8080
+$ kubectl proxy -p 8009 &
+Starting to serve on 127.0.0.1:8009
 $ curl -L --data '{"Another": "Echo"}' --header "Content-Type:application/json" \
-  localhost:8080/api/v1/namespaces/default/services/hello:http-function-port/proxy/
+  localhost:8009/api/v1/namespaces/default/services/hello:http-function-port/proxy/
 {"Another": "Echo"}
 ```
 
 ## Clean up
 * Remove the application
 ```bash
+$ kill %1 # it should be kubectl proxy
 $ kubeless function delete hello
 $ kubeless function ls
 NAME	NAMESPACE	HANDLER	RUNTIME	DEPENDENCIES	STATUS
@@ -148,3 +152,11 @@ $ kubectl delete -f https://github.com/kubeless/kubeless/releases/download/$RELE
 ```
 
  
+## Kubeless as serverless plugin - To-do list management application
+
+### Frontend
+* See [app/todo-list-mgt/frontend/README](app/todo-list-mgt/frontend/README.md)
+
+### Backend
+* See [app/todo-list-mgt/backend/README](app/todo-list-mgt/backend/README.md)
+
