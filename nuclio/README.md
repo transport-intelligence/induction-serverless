@@ -1,8 +1,8 @@
 # References
 
-## Fission
-* http://fission.io
-* http://github.com/fission/fission
+## Nuclio
+* http://nuclio.io
+* http://github.com/nuclio/nuclio
 
 ## Kubernetes
 * http://kubernetes.io
@@ -11,7 +11,7 @@
 * http://docs.docker.com/docker-for-mac/kubernetes
 
 # Installation
-* Reference: http://docs.fission.io/0.7.2/installation/kubernetessetup
+* Reference: http://github.com/nuclio/nuclio/blob/master/docs/setup/k8s/getting-started-k8s.md
 
 
 

@@ -1,8 +1,8 @@
 # References
 
-## Fission
-* http://fission.io
-* http://github.com/fission/fission
+## Apache OpenWhisk
+* http://openwhisk.incubator.apache.org
+* http://openwhisk.incubator.apache.org/developers.html
 
 ## Kubernetes
 * http://kubernetes.io
@@ -11,7 +11,7 @@
 * http://docs.docker.com/docker-for-mac/kubernetes
 
 # Installation
-* Reference: http://docs.fission.io/0.7.2/installation/kubernetessetup
+* Reference: http://github.com/apache/incubator-openwhisk-deploy-kube
 
 
 

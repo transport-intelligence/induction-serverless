@@ -1,8 +1,9 @@
 # References
 
-## Fission
-* http://fission.io
-* http://github.com/fission/fission
+## Fn
+* http://serverless.com
+  + http://serverless.com/framework/docs
+* http://github.com/fnproject/fn
 
 ## Kubernetes
 * http://kubernetes.io
@@ -11,7 +12,7 @@
 * http://docs.docker.com/docker-for-mac/kubernetes
 
 # Installation
-* Reference: http://docs.fission.io/0.7.2/installation/kubernetessetup
+* Reference: http://dzone.com/articles/serverless-with-fn-project-on-kubernetes-for-docke
 
 
 

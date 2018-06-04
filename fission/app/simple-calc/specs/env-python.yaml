@@ -1,0 +1,19 @@
+apiVersion: fission.io/v1
+kind: Environment
+metadata:
+  creationTimestamp: null
+  name: python
+  namespace: default
+spec:
+  TerminationGracePeriod: 360
+  builder:
+    command: build
+    image: 'fission/python-build-env:'
+  poolsize: 3
+  resources: {}
+  runtime:
+    functionendpointport: 0
+    image: 'fission/python-env:'
+    loadendpointpath: ""
+    loadendpointport: 0
+  version: 2
