@@ -181,12 +181,13 @@ $ curl 35.229.122.182.xip.io/read-all
 This host is the one that should be used as `API_URL` in the frontend.
 
 # Troubleshoot
-* Web-based dashboard
+
+## Web-based dashboard
 ```bash
 $ kubectl dashboard
 ```
 
-* Command-line
+## Kubectl basic information
 ```bash
 $ kubectl get nodes
 $ kubectl get pods
@@ -195,6 +196,36 @@ $ kubectl get functions
 $ serverless describe function
 $ serverless info
 $ serverless logs -f create
+```
+
+## Invoking Kubernetes services
+
+### From ``curl``
+* If the ``kubectl`` proxy is not already launched, launch it
+```bash
+$ kubectl proxy -p 8001 &
+```
+
+* Invoke the Kubernetes service through the proxy
+```bash
+$ export POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}'|grep read-all)
+$ curl http://localhost:8001/api/v1/namespaces/default/pods/$POD_NAME/proxy/ && echo
+[]
+```
+
+### Spawning a Bash shell
+```bash
+$ export POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}'|grep read-all)
+$ kubectl exec -ti $POD_NAME bash
+node@read-all-7d6c68bc9b-x6f97:/$ curl http://localhost:8080 && echo
+[]
+node@read-all-7d6c68bc9b-x6f97:/$ exit
+```
+
+## Logs of Kubernetes services
+```bash
+$ export POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}'|grep read-all)
+$ kubectl logs $POD_NAME
 ```
 
 # Cleanup
