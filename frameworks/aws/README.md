@@ -56,3 +56,35 @@ $  curl http://127.0.0.1:3000/hello && echo
 {"message": "hello world", "location": "212.93.29.64"}
 ```
 
+## JavaScript S3 Bucket Display
+
+* Create the S3 bucket
+```bash
+$ aws s3 mb s3://playground-dev-s3-sam-test --region eu-central-1
+```
+
+* Package the application and upload the artefact
+```bash
+$ sam package --template-file example.yaml --output-template-file serverless-output.yaml --s3-bucket playground-dev-s3-sam-test
+Uploading to ea566cb786a9b4dcb78167dc0e7327b2  938 / 938.0  (100.00%)
+Successfully packaged artifacts and wrote output template to file serverless-output.yaml.
+Execute the following command to deploy the packaged template
+aws cloudformation deploy --template-file /home/build/dev/infra/api/induction-serverless/frameworks/aws/sam-s3-display-app/serverless-output.yaml --stack-name <YOUR STACK NAME>
+```
+
+* Check that the artefact has been uploaded onto the S3 bucket
+```bash
+$ aws s3 ls s3://playground-dev-s3-sam-test --recursive --human-readable --summarize
+2018-06-13 18:05:01    1.0 KiB ea566cb786a9b4dcb78167dc0e7327b2
+
+Total Objects: 1
+   Total Size: 1.0 KiB
+```
+
+* Deploy the application
+```bash
+$ sam deploy --template-file serverless-output.yaml --stack-name sam-test-v001 --region eu-central-1
+```
+
+
+
