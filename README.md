@@ -8,6 +8,7 @@ of Kubernetes-based serverless frameworks, for instance:
 # Serverless frameworks
 
 ## Open Source
+* See also https://opensource.com/article/18/11/open-source-serverless-platforms
 
 ### Fission
 See [Fission-related README](frameworks/fission/README.md)
@@ -32,6 +33,9 @@ See [Nuclio-related README](frameworks/nuclio/README.md)
 
 ### OpenFAAS
 See [OpenFAAS-related README](frameworks/openfaas/README.md)
+
+### OpenLambda
+See [OpenLambda-related README](frameworks/openlambda/README.md)
 
 ### OpenWhisk
 See [OpenWhisk-related README](frameworks/openwhisk/README.md)
