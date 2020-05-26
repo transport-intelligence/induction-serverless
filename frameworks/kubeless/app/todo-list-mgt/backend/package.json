@@ -8,7 +8,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.13",
     "mongodb": "^2.2.30",
     "uuid": "^2.0.3"
   },
