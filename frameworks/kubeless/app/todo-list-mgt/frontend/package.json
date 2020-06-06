@@ -14,16 +14,16 @@
   "license": "MIT",
   "devDependencies": {
     "babel-core": "*",
-    "babel-loader": "*",
-    "babel-plugin-react-transform": "*",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-react-transform": "^3.0.0",
     "babel-plugin-syntax-class-properties": "*",
     "babel-plugin-syntax-decorators": "*",
     "babel-plugin-syntax-object-rest-spread": "*",
     "babel-preset-es2015": "*",
     "babel-preset-react": "*",
     "babel-preset-stage-0": "*",
-    "file-loader": "*",
-    "react-hot-loader": "*",
+    "file-loader": "^6.0.0",
+    "react-hot-loader": "^4.12.21",
     "webpack": "^4.43.0",
     "webpack-dev-server": "*"
   },
@@ -31,13 +31,14 @@
     "babel-plugin-transform-class-properties": "*",
     "babel-plugin-transform-object-rest-spread": "*",
     "lodash": "*",
-    "react": "*",
-    "react-dom": "*",
-    "react-mixin": "*",
-    "react-redux": "*",
-    "redux": "*",
-    "redux-logger": "*",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-mixin": "^5.0.0",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
     "redux-thunk": "*",
-    "whatwg-fetch": "*"
+    "whatwg-fetch": "^3.0.0",
+    "websocket-extensions": ">=0.1.4"
   }
 }
