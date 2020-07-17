@@ -8,9 +8,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "lodash": "*",
-    "mongodb": "*",
-    "uuid": "*"
+    "lodash": "^4.17.19",
+    "mongodb": "^3.5.9",
+    "uuid": "^8.2.0"
   },
   "devDependencies": {
     "serverless-kubeless": "*"
