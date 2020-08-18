@@ -24,21 +24,21 @@
     "babel-preset-stage-0": "*",
     "file-loader": "^6.0.0",
     "react-hot-loader": "^4.12.21",
-    "webpack": "^4.43.0",
+    "webpack": "^4.44.1",
     "webpack-dev-server": "*"
   },
   "dependencies": {
     "babel-plugin-transform-class-properties": "*",
     "babel-plugin-transform-object-rest-spread": "*",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.20",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-mixin": "^5.0.0",
-    "react-redux": "^7.2.0",
+    "react-redux": "^7.2.1",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-thunk": "*",
     "websocket-extensions": ">=0.1.4",
-    "whatwg-fetch": "^3.2.0"
+    "whatwg-fetch": "^3.4.0"
   }
 }
