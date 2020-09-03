@@ -8,11 +8,11 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "lodash": "^4.17.19",
-    "mongodb": "^3.5.9",
-    "uuid": "^8.2.0"
+    "lodash": "^4.17.20",
+    "mongodb": "^3.6.1",
+    "uuid": "^8.3.0"
   },
   "devDependencies": {
-    "serverless-kubeless": "*"
+    "serverless-kubeless": "^0.10.2"
   }
 }
