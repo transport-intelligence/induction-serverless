@@ -23,8 +23,9 @@
     "babel-preset-react": "*",
     "babel-preset-stage-0": "*",
     "file-loader": "^6.1.0",
+    "node-forge": ">=0.10.0",
     "react-hot-loader": "^4.12.21",
-    "webpack": "^4.44.1",
+    "webpack": "^4.44.2",
     "webpack-dev-server": "*"
   },
   "dependencies": {
@@ -39,6 +40,6 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "*",
     "websocket-extensions": ">=0.1.4",
-    "whatwg-fetch": "^3.4.0"
+    "whatwg-fetch": "^3.4.1"
   }
 }
